@@ -212,10 +212,13 @@ from bs4 import BeautifulSoup
 
 # # local directory to store content
 # each page scraped has folder created here
-root = r'D:\GIS\PROJECT_22\SCRAPE\DOC'
+# root = r'D:\GIS\PROJECT_22\SCRAPE\DOC'
+root = '/media/c/TRANSCEND_MOBI/nrcs'
+
 
 # excel spreadsheet of urls
-f = r"D:\GIS\PROJECT_22\SCRAPE\T\Analytics All Web Site Data Event Pages 20180101-20220626-page-and-pagetitle.xlsx"
+# f = r"D:\GIS\PROJECT_22\SCRAPE\T\Analytics All Web Site Data Event Pages 20180101-20220626-page-and-pagetitle.xlsx"
+f = '/home/c/Documents/GitHub/SCRAPE/T/Analytics All Web Site Data Event Pages 20180101-20220626-page-and-pagetitle.xlsx'
 df = pd.read_excel(f, sheet_name='Chad-downloads')
 
 urls = df['CURL'].unique().tolist()
