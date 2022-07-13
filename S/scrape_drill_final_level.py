@@ -64,10 +64,14 @@ def scrape_files(requester, edible, dest, dig=False):
                 meat_text = meat.get_text()
                 meat_text = re.sub(r'\n+', '\n', meat_text).strip()
                 # meat = re.sub(r"''", "'\n'", meat)
+                
                 with open(dest + os.sep + 'page_dialog.txt', 'w') as f:
                     f.write(meat_text)
                 f.close()
-            
+                
+                with open(dest + os.sep + 'page_dialog.html', 'w') as f:
+                    f.write(str(meat))
+                f.close()
             
                 links = meat.find_all('a', href=True)
                 # print(links)
@@ -270,7 +274,7 @@ try:
                                             print('Running final level aready have: ' + finalurl)
                                             haveurl.append(finalurl)
                         else:
-                            print('Running nextlevel aready have: ' + nexturl)
+                            print('Running next level aready have: ' + nexturl)
                             haveurl.append(nexturl)
         else:
             print('Running top level aready have: ' + url)
@@ -288,7 +292,7 @@ except:
 #     except:
 #         fail.append(url)
 
-print('These URLS were tried more than once')
+print('\nThese URLS were tried more than once')
 for h in haveurl:
     print(h)
 
