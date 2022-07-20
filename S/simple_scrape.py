@@ -36,12 +36,13 @@ urls = df['CURL'].unique().tolist()
 # urls from clipboard=======================================
 df = pd.read_clipboard("\t", header = None)
 urls = df[1].to_list()
-urls = urls[1][0]
+urls = urls[0:1]
 
 
 for url in urls:
     try:
         linkd = dict()
+        n=1
         page = requests.get(url)
         # print(page.content)
         
@@ -124,8 +125,12 @@ for url in urls:
                                             else:
                                                 dl = link
                                             
-                                            
-                                            linkd[desc] = dl
+                                            if desc in linkd:
+                                                desc = desc + '_v' + str(n)
+                                                linkd[desc] = dl
+                                                n+=1
+                                            else:
+                                                linkd[desc] = dl
                                             
                             
                     imgs = meat.find_all('img')
@@ -171,13 +176,18 @@ for url in urls:
                                             idl = 'https://www.nrcs.usda.gov' + src
                                         else:
                                             idl = src
-                                    
-                                        linkd[d] = idl
+                                        
+                                        if d in linkd:
+                                            d = d + '_v' + str(n)
+                                            linkd[d] = idl
+                                            n+=1
+                                        else:                                            
+                                            linkd[d] = idl
                 else:
                     pass                                                                
         
             if len(linkd) > 0:
-                n=1
+            
                 for desc in linkd:
                     
                     thelink = linkd.get(desc)
