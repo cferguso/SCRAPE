@@ -15,22 +15,30 @@ root = r'D:\GIS\PROJECT_22\SCRAPE_RESULTS'
 validdirs = ['wps', 'Internet']
 fail = list()
 
-# excel spreadsheet of urls
+# excel spreadsheet of urls===================================
 f = r"D:\GIS\PROJECT_22\SCRAPE\T\Analytics All Web Site Data Event Pages 20180101-20220626-page-and-pagetitle.xlsx"
 # f = '/home/c/Documents/GitHub/SCRAPE/T/Analytics All Web Site Data Event Pages 20180101-20220626-page-and-pagetitle.xlsx'
 df = pd.read_excel(f, sheet_name='Chad-downloads')
 
 urls = df['CURL'].unique().tolist()
-
 # urls = urls[25:50]
 
+
+
+# test urls===============================================
 # urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/use/','https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/use/urban/?cid=nrcs142p2_053986']           
 # urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/survey/']
 # urls = ["https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/use/worldsoils/edu/"]
-
 # urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/soilsurvey/soils/survey/state/']
 # urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/use/worldsoils/']
-urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/ref/?cid=nrcseprd1652414']
+# urls = ['https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/ref/?cid=nrcseprd1652414']
+
+# urls from clipboard=======================================
+df = pd.read_clipboard("\t", header = None)
+urls = df[1].to_list()
+urls = urls[1][0]
+
+
 for url in urls:
     try:
         linkd = dict()
