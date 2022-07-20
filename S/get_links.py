@@ -26,7 +26,7 @@ for div in divs:
         links = meat.find_all('a', href=True)
         
         if not links is None:
-            
+            print('state' + '\t' + 'url')
             for l in links:
                 
                 
