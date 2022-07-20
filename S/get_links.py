@@ -5,14 +5,14 @@ Created on Tue Jul 19 09:57:22 2022
 @author: Charles.Ferguson
 """
 
-import requests, os, pandas as pd, re
+import requests, os, pandas as pd
 from bs4 import BeautifulSoup
 
 # url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/use/urban/'
 # url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/soilsurvey/soils/survey/state/'
 url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/geo/?cid=nrcseprd1423827'
 validdirs = ['wps', 'Internet']
-
+print("state" + '\t' + 'CURL')
 page = requests.get(url)
 
 soup = BeautifulSoup(page.content, "html.parser")
