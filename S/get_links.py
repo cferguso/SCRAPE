@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 # url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/use/urban/'
 # url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/soilsurvey/soils/survey/state/'
-url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/geo/?cid=nrcseprd1423827'
+url = 'https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/ncss/?cid=nrcs142p2_054322'
 validdirs = ['wps', 'Internet']
 print("state" + '\t' + 'CURL')
 page = requests.get(url)
