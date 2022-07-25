@@ -99,6 +99,9 @@ for url in urls:
                             desc = l.get_text()
                             desc = re.sub(r'[^A-Za-z0-9 ]+', '', desc)
                             
+                            if desc == '':
+                                desc = 'Unhandled_link_text'
+                            
                             # print(link, desc)
                             
                             # filter more to make sure it's a vaild URL (not email, anchor,..)
