@@ -19,3 +19,5 @@ t_sum =(urls['Page Title'].duplicated()).sum()
 
 titles = urls.loc[urls['Page Title'].duplicated()]
 titles.sort_values('Page Title', axis = 0, inplace = True)
+
+test = titles[titles['Page Title'] == 'Ecological Site Information | NRCS Soils']
